@@ -19,7 +19,7 @@
     <input type="radio" name="one" value="AAAA" checked> AAAA<br>
     <input type="radio" name="one" value="BBBB"> BBBB<br>
     <input type="radio" name="one" value="other"> Other<br>
-    <input type="button" value="Submit">
+    <input type="button" value="Next">
 </div>
 </section>
 <section>
@@ -31,20 +31,25 @@
   Last name:
   <input type="text" name="lastname"><br>
   Grade:
-  <input type="number" name="Grade" min="9" max="11">th grade<br>
+  <input type="number" name="Grade" min="9" max="12">th grade<br>
   When will I apply to college (month and year):
-    <input type="month" name="appDate"><br>
+    <input type="date" name="appDate"><br>
     How many times I plan to take the test:
     <input type="number" name="testNum" min="1" max="3"><br>
-  In my plan, my first test will be on (month and year):
-    <input type="month" name="testDate1"><br>
-  In my plan, my second test will be on (month and year):
-    <input type="month" name="testDate2"><br>
+  In my plan, my first test will be on:
+    <input type="date" name="testDate1"><br>
+  In my plan, my second test will be on:
+    <input type="date" name="testDate2"><br>
+  In my plan, my third test will be on:
+      <input type="date" name="testDate3"><br>
     When should I start to prepare for my first test:
-    <input type="month" name="prepDate1"><br>
+    <input type="date" name="prepDate1"><br>
     When should I start to prepare for my second test:
-    <input type="month" name="prepDate2"><br>
-  <button type="button">Next</button>
+    <input type="date" name="prepDate2"><br>
+    When should I start to prepare for my third test:
+    <input type="date" name="prepDate3"><br>
+  <!-- <input type="button" value="Next"> -->
+  <button id="seeYourPlan">See your plan</button>
 </div>
 <div id="feedback">
 
