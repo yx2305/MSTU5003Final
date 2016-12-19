@@ -1,3 +1,54 @@
+// Part2 interactions: muliple choice questions
+//Q1
+document.querySelector('#evalQuiz1').addEventListener('click', function(event){
+  var q1Val = document.querySelector('[name="q1"]:checked').value;
+  var feedbackEl = document.getElementById('q1Feedback');
+  if(q1Val==="D"){
+	feedbackEl.innerHTML = "Congratulation! D is the best answer!";
+  feedbackEl.classList.add('rightAnswer');
+}else{
+  feedbackEl.innerHTML = "Oops! This is not the best answer. Choose another one and resubmit.";
+  feedbackEl.classList.add('wrongAnswer');
+}
+});
+//Q2
+document.querySelector('#evalQuiz2').addEventListener('click', function(event){
+  var q2Val = document.querySelector('[name="q2"]:checked').value;
+  var feedbackEl = document.getElementById('q2Feedback');
+  if(q2Val==="C"){
+	feedbackEl.innerHTML = "Congratulation! C is the best answer!";
+  feedbackEl.classList.add('rightAnswer');
+}else{
+  feedbackEl.innerHTML = "Oops! This is not the best answer. Choose another one and resubmit.";
+  feedbackEl.classList.add('wrongAnswer');
+}
+});
+//Q3
+document.querySelector('#evalQuiz3').addEventListener('click', function(event){
+  var q3Val = document.querySelector('[name="q3"]:checked').value;
+  var feedbackEl = document.getElementById('q3Feedback');
+  if(q3Val==="B"){
+	feedbackEl.innerHTML = "Congratulation! B is the best answer!";
+  feedbackEl.classList.add('rightAnswer');
+}else{
+  feedbackEl.innerHTML = "Oops! This is not the best answer. Choose another one and resubmit.";
+  feedbackEl.classList.add('wrongAnswer');
+}
+});
+//Q4
+document.querySelector('#evalQuiz4').addEventListener('click', function(event){
+  var q4Val = document.querySelector('[name="q4"]:checked').value;
+  var feedbackEl = document.getElementById('q4Feedback');
+  if(q4Val==="D"){
+	feedbackEl.innerHTML = "Congratulation! D is the best answer!";
+  feedbackEl.classList.add('rightAnswer');
+}else{
+  feedbackEl.innerHTML = "Oops! This is not the best answer. Choose another one and resubmit.";
+  feedbackEl.classList.add('wrongAnswer');
+}
+});
+
+// Part3 interactions:
 //Rule1 (error handling) : testDate should be no later than college application date(appDate).
 var dateInput;
 var dateVal;
@@ -111,7 +162,7 @@ document.querySelector('[name=testDate2]').addEventListener('blur',function(even
    diffTestDays = rawDiffTestDays/86400000;
   console.log('Days between testDate1 and testDate2:'+diffTestDays);
   if(gradeNum<12&&diffTestDays<90){
-    alert("You still have enough time, don't huddle your tests together! Separate them by at least 90 days in bettween, and give yourself sufficient time to make progress. Please select a new test date to meet this criterion.");
+    alert("You still have enough time, don't huddle your tests together! Separate them by at least 90 days in between, and give yourself sufficient time to make progress. Please select a new test date to meet this criterion.");
     document.querySelector('[name=prepDate2]').disabled = true;
   }
 
@@ -159,7 +210,7 @@ document.querySelector('[name=testDate3]').addEventListener('blur',function(even
   diffTestDays = rawDiffTestDays/86400000;
  console.log('Days between testDate3 and testDate2:'+diffTestDays);
  if(gradeNum<12&&diffTestDays<90){
-   alert("You still have enough time, don't huddle your tests together! Separate them by at least 90 days in bettween, and give yourself sufficient time to make progress. Please select a new test date to meet this criterion.");
+   alert("You still have enough time, don't huddle your tests together! Separate them by at least 90 days in between, and give yourself sufficient time to make progress. Please select a new test date to meet this criterion.");
    document.querySelector('[name=prepDate3]').disabled = true;
  }
 });
@@ -183,9 +234,52 @@ document.querySelector('[name=prepDate3]').addEventListener('blur',function(even
 }
 });
 
+
+// plan report generation:
+//1st: get all the information from input forms.
 document.querySelector('#seeYourPlan').addEventListener('click',function(event){
-  alert("yAY");
+  var firstName=document.querySelector('[name=firstName]').value;
+  var lastName=document.querySelector('[name=lastName]').value;
+  var applicationDate=document.querySelector('[name=appDate]').value;
+  var testNumber=document.querySelector('[name=testNum]').value;
+  var firstTest=document.querySelector('[name=testDate1]').value;
+  var secondTest=document.querySelector('[name=testDate2]').value;
+  var thirdTest=document.querySelector('[name=testDate3]').value;
+  var firstPrep=document.querySelector('[name=prepDate1]').value;
+  var secondPrep=document.querySelector('[name=prepDate2]').value;
+  var thirdPrep=document.querySelector('[name=prepDate3]').value;
+  console.log('firstName:'+firstName);
+  console.log('lastName:'+lastName);
+  console.log('applicationDate:'+applicationDate);
+  console.log('testNumber:'+testNumber);
+  console.log('firstTest:'+firstTest);
+  console.log('secondTest:'+secondTest);
+  console.log('thirdTest:'+thirdTest);
+  console.log('firstPrep:'+firstPrep);
+  console.log('secondPrep:'+secondPrep);
+  console.log('thirdPrep:'+thirdPrep);
+
+  //2nd: Print out information got from input to HTML to generate a plan
+  var report=document.querySelector('#planReport');
+  var planItemEl1 = document.createElement('h3');
+      planItemEl1.innerHTML= "This is "+ firstName+" "+lastName+"'s plan for the standardized test:";
+      report.appendChild(planItemEl1);
+  var planItemEl2 = document.createElement('li');
+      planItemEl2.innerHTML= "I will have all my college preparation work done by "+applicationDate+", and start to actually apply to college around this time.";
+      report.appendChild(planItemEl2);
+  var planItemEl3 = document.createElement('li');
+      planItemEl3.innerHTML="My 1st test will be on "+firstTest+", and from "+firstPrep+", I will start to prepare for this test.";
+      report.appendChild(planItemEl3);
+
+  //3rd: deal with conditional information that may or may not presented
+  if(testNumber>1){
+    var planItemEl4 = document.createElement('li');
+        planItemEl4.innerHTML="My 2nd test will be on "+secondTest+", and from "+secondPrep+", I will start to prepare for this test.";
+        report.appendChild(planItemEl4);
+  }//print this out only if testNumber=2 or 3;
+  if(testNumber>2){
+    var planItemEl5 = document.createElement('li');
+        planItemEl5.innerHTML="My 3rd test will be on "+thirdTest+", and from "+thirdPrep+", I will start to prepare for this test.";
+        report.appendChild(planItemEl5);
+  }//print this out only if testNubmer=3;
 });
-
-
-//Question: how to grab these dates, compute them, and output them.

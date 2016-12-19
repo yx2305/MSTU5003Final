@@ -1,0 +1,82 @@
+/*@media (max-width:767px) {
+  .img-responsive{
+    max-width: 50%;body {
+    background-image: url("paper.gif");
+    background-color: #cccccc;
+}
+    min-width: 200px;
+  }
+}*/
+body {
+    background-image: url("images/bluesky.jpg");
+    background-color: #cccccc;
+    background-size: cover;
+      font-family: "NotoNashkArabic", "ProximaNova-regular", "Helvetica Neue", "Helvetica", Arial, sans-serif;
+      font-size: 18px;
+      line-height: 27px;
+      margin-bottom: 20px;
+}
+.jumbotron{
+  background-color: rgb(145,234,232);
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  margin: 80px;
+}
+h1{
+  color:white;
+  margin-top: 30px;
+}
+h2{
+  color: black;
+  font-family: 'Inconsolata', monospace, Helvetica, Arial, sans-serif;
+  font-size: 3.5em;
+  font-weight: 800;
+  text-align: center;
+}
+#title {
+  color: black;
+  font-family: 'Inconsolata', monospace, Helvetica, Arial, sans-serif;
+  font-size: 4em;
+  font-weight: 700;
+  text-align: center;
+}
+#subtitle {
+  color: rgb(252,91,31);
+  font-family: inherit;
+  font-size: 2em;
+  font-weight: 300;
+  text-align: center;
+  margin-top: 40px;
+}
+#homepageImg{
+  margin:90px;
+}
+
+
+.btn{
+  margin-top: 40px;
+  margin-bottom: 60px;
+  padding: 10px 50px;
+}
+/*div{
+  text-align: center;
+}*/
+.instrContent{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: white;
+  padding: 20px;
+  border-color: black;
+  border-width:5px;
+  border-style: double;
+  border-radius: 15px;
+}
+.wrongAnswer{
+  color: red;
+  font-size: 20px;
+}
+.rightAnswer{
+  color: green;
+  font-size: 20px;
+}
