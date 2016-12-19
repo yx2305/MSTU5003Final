@@ -52,7 +52,10 @@ h2{
 #homepageImg{
   margin:90px;
 }
-
+#planReport{
+  background-color: rgb(230,230,230);
+  padding: 15px;
+}
 
 .btn{
   margin-top: 40px;
